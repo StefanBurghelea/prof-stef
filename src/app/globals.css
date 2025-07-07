@@ -1,0 +1,121 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/font/Orbitron-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/font/Orbitron-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/font/Orbitron-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/font/Orbitron-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Vertical Swiper Styles */
+.vertical-swiper-left,
+.vertical-swiper-right {
+  padding: 20px 0;
+}
+
+.vertical-swiper-left .swiper-slide,
+.vertical-swiper-right .swiper-slide {
+  height: 160px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.vertical-swiper-left .swiper-slide-active,
+.vertical-swiper-right .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Image scaling for active slides */
+.vertical-swiper-left .swiper-slide-active .slide-image,
+.vertical-swiper-right .swiper-slide-active .slide-image {
+  transform: scale(1.3);
+}
+
+/* Custom scrollbar hide styles */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom navigation button styles */
+.swiper-button-prev-left,
+.swiper-button-next-left,
+.swiper-button-prev-right,
+.swiper-button-next-right {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev-left:hover,
+.swiper-button-next-left:hover,
+.swiper-button-prev-right:hover,
+.swiper-button-next-right:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-container .grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+  }
+  
+  .hero-container .col-span-4 {
+    grid-column: span 1;
+  }
+  
+  .vertical-swiper-left,
+  .vertical-swiper-right {
+    height: 300px;
+  }
+  
+  .vertical-swiper-left .swiper-slide,
+  .vertical-swiper-right .swiper-slide {
+    height: 120px;
+  }
+}
+
