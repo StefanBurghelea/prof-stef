@@ -6,6 +6,8 @@ import SwiperComponent from './SwiperComponent';
 import AiAgent from './AiAgent';
 
 const Hero = () => {
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+
   const technologySlides = [
     {
       title: "Python",
@@ -63,7 +65,7 @@ const Hero = () => {
       title: "Portfolio PDF",
       description: "Preview of the portfolio",
       image: "/img/preview_portfolio.png",
-      href: `${window.location.origin}/do/cv06-23.pdf`,
+      href: `${baseUrl}/do/cv06-23.pdf`,
       },
   ];
 
