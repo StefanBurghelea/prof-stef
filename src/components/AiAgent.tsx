@@ -303,7 +303,6 @@ const AiAgent = ({ isChatExpanded, toggleChat }: {
             </div>
           </div>
 
-          {/* Chat Input */}
           <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(); }} className="flex space-x-3">
             <input
               type="text"
@@ -328,7 +327,6 @@ const AiAgent = ({ isChatExpanded, toggleChat }: {
             </button>
           </form>
 
-          {/* Quick Questions */}
           {!isBlocked && (
             <div className="mt-4">
               <p className="text-white/40 text-xs mb-2">Quick questions:</p>

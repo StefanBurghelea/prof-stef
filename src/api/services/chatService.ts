@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { ChatRequest, ChatResponse, ApiError } from '../interfaces/chat';
 
-// Use local API route instead of external URL
 const API_BASE_URL = '/api';
 
-// Create axios instance with default config
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   timeout: 10000,
@@ -18,7 +16,6 @@ export class ChatService {
     try {
       const requestData: ChatRequest = { question };
       
-      // This will now call /api/chat instead of the external URL
       const response = await apiClient.post<ChatResponse>('/chat', requestData);
       
       return response.data;

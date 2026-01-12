@@ -2,11 +2,71 @@
 
 import React, { useState } from 'react';
 import { FaLinkedin, FaGithub, FaEnvelope, FaGlobe, FaFilePdf } from 'react-icons/fa';
-import LeftSwiper from './LeftSwiper';
-import RightSwiper from './RightSwiper';
+import SwiperComponent from './SwiperComponent';
 import AiAgent from './AiAgent';
 
 const Hero = () => {
+  const technologySlides = [
+    {
+      title: "Python",
+      image: "/img/python512.png"
+    },
+    {
+      title: "Django",
+      image: "/img/django512.png"
+    },
+    {
+      title: "React",
+      image: "/img/logo512.png"
+    },
+    {
+      title: "Angular",
+      image: "/img/angular512.png"
+    },
+    {
+      title: "FastAPI",
+      image: "/img/fastapi.png"
+    },
+  ];
+
+  const projectSlides = [
+    {
+      id: 5,
+      title: "LaForza",
+      description: "Coded from scratch using React and NextJS, with Supabase",
+      image: "/img/laforza_screen.png",
+      href: "laforza-five.vercel.app",
+    },
+    {
+      id: 6,
+      title: "KorteAfiado",
+      description: "Used Webflow for the development",
+      image: "/img/korteafiado_screen.png",
+      href: "korteafiado.pt",
+    },
+    {
+      id: 7,
+      title: "GeniuneAim",
+      description: "Used Webflow for the development",
+      image: "/img/genuineaim_screen.png",
+      href: "genuineaim.com",
+    },
+    {
+      id: 8,
+      title: "Signal AI",
+      description: "Full time for Signal AI as Software Engineer",
+      image: "/img/signal_screen.png",
+      href: "signalai.com",
+    },
+    {
+      id: 9,
+      title: "Portfolio PDF",
+      description: "Preview of the portfolio",
+      image: "/img/preview_portfolio.png",
+      href: `${window.location.origin}/do/cv06-23.pdf`,
+      },
+  ];
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isChatExpanded, setIsChatExpanded] = useState(false);
@@ -38,7 +98,6 @@ const Hero = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background layer that zooms at mouse position */}
       <div 
         className="absolute inset-0 transition-transform duration-300 ease-out"
         style={{ 
@@ -51,7 +110,6 @@ const Hero = () => {
         }}
       />
       
-      {/* Spotlight overlay that follows mouse */}
       <div 
         className="absolute inset-0 pointer-events-none transition-opacity duration-300"
         style={{
@@ -61,15 +119,16 @@ const Hero = () => {
         }}
       />
       
-      {/* Grid Layout - Fixed proportions */}
       <div className="relative z-10 h-full grid grid-cols-12 gap-4 p-4">
         
-        <LeftSwiper />
+        <SwiperComponent 
+          slides={technologySlides}
+          variant="left"
+        />
 
         <div className={`col-span-4 flex flex-col transition-all duration-700 ease-in-out ${
           isChatExpanded ? 'justify-start pt-8' : 'justify-center items-center'
         }`}>
-          {/* Main Content Container */}
           <div className={`text-center space-y-4 transition-all duration-700 ease-in-out transform ${
             isChatExpanded ? 'scale-75' : 'scale-100'
           }`}>
@@ -80,15 +139,12 @@ const Hero = () => {
               Software Engineer
             </h1>
             
-            {/* Professional Title */}
             <div className="space-y-2">
-              {/* Description */}
               <p className="text-white/80 text-sm md:text-base 2xl:text-sm max-w-md mx-auto leading-relaxed">
               Hi, I’m backend-focused software engineer from Portugal with 4+ years of experience.I specialize in building scalable APIs, backend systems, and integrating modern web services.Open to freelance and new challenges — feel free to chat with me using the AI assistant.
               </p>
             </div>
             
-            {/* Social Media Icons */}
             <div className="flex justify-center items-center space-x-6 pt-4">
               {[
                 {
@@ -132,7 +188,6 @@ const Hero = () => {
               ))}
             </div>
             
-            {/* Ask Me Button */}
             {!isChatExpanded && (
               <div className="pt-8">
                 <button
@@ -146,11 +201,13 @@ const Hero = () => {
             )}
           </div>
 
-          {/* AI Agent Component */}
           <AiAgent isChatExpanded={isChatExpanded} toggleChat={toggleChat} />
         </div>
 
-        <RightSwiper />
+        <SwiperComponent 
+          slides={projectSlides}
+          variant="right"
+        />
 
       </div>
     </div>
