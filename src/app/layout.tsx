@@ -140,9 +140,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <link rel="icon" href="/img/SB.ico" sizes="any" />
+        <link rel="icon" href="/img/SB.svg" sizes="any" />
         <link rel="icon" href="/img/SB.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/img/SB.png" />
+        <link rel="apple-touch-icon" href="/img/profile_photo.png" />
         
         <meta name="google-site-verification" content="3cqOJh3dXr-k81RYVeb1p_SLPivh3EWmuQ5PQKpYuL0" />
         
